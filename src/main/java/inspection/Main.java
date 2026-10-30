@@ -7,6 +7,8 @@ public final class Main {
         ProjectStatisticsVisitor statistics = new ProjectStatisticsVisitor();
         QualityGateVisitor quality = new QualityGateVisitor();
         ComplianceVisitor compliance = new ComplianceVisitor();
+        TechnicalDebtVisitor debt = new TechnicalDebtVisitor();
+        project.accept(debt);
         project.accept(security);
         project.accept(statistics);
         project.accept(quality);
@@ -15,5 +17,6 @@ public final class Main {
         System.out.println("\n" + statistics.report());
         System.out.println("\n" + quality.report());
         System.out.println("\n" + compliance.report());
+        System.out.println("\n" + debt.report());
     }
 }
